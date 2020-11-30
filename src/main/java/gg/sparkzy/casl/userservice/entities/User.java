@@ -1,8 +1,19 @@
 package gg.sparkzy.casl.userservice.entities;
 
-public class User {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-int id;
+import lombok.Data;
+
+@Data
+@Entity(name = "users")
+public class User {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int id;
 	
 	String username;
 	String email;
