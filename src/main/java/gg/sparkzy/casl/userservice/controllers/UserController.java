@@ -19,6 +19,7 @@ import gg.sparkzy.casl.userservice.services.UserService;
 @RestController
 @RequestMapping("/users/")
 @RefreshScope // actuator/refresh
+//@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 	
 	@Autowired
