@@ -29,16 +29,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> findAll() {
 		return userRepo.findAll();
-//		List<User> users = new ArrayList<>();
-//		users.add(new User(1, "sparkzy", "ramjr13@gmail.com"));
-//		users.add(new User(2, "oretara", "chungus@gmail.com"));
-//		return users;
 	}
 
 	@Override
 	public User findById(int id) {
 		return userRepo.getOne(id);
-//		return new User(id, "sparkzy", "ramjr13@gmail.com");
+	}
+	
+	@Override
+	public User findByUsername(String username) {
+		return userRepo.findByUsername(username);
 	}
 
 	/************************************************************************************
@@ -46,8 +46,7 @@ public class UserServiceImpl implements UserService {
 	 ************************************************************************************/
 	@Override
 	public void update(User updatedUser) {
-		// TODO Auto-generated method stub
-		
+		userRepo.save(updatedUser);
 	}
 
 	/************************************************************************************
@@ -55,8 +54,7 @@ public class UserServiceImpl implements UserService {
 	 ************************************************************************************/
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
+		userRepo.deleteById(id);		
 	}
 
 }

@@ -17,7 +17,7 @@ import gg.sparkzy.casl.userservice.entities.User;
 import gg.sparkzy.casl.userservice.services.UserService;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/users/")
 @RefreshScope // actuator/refresh
 public class UserController {
 	
@@ -45,11 +45,11 @@ public class UserController {
 	
 	public List<User> fallbackFindAll() {
 		List<User> users = new ArrayList<User>();
-		users.add(new User(0, "No users", "n/a"));
+		users.add(new User(0, "No users", "", "", "", ""));
 		return users;
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("id/{id}")
 	@HystrixCommand(
 			fallbackMethod = "fallbackFindById",
 			threadPoolKey = "userPool",
@@ -62,7 +62,23 @@ public class UserController {
 	}
 	
 	public User fallbackFindById(int id) {
-		return new User(id, "No user with id: " + id, "n/a");
+		return new User(id, "No user with id " + id, null, null, null, null);
+	}
+	
+	@GetMapping("username/{username}")
+	@HystrixCommand(
+			fallbackMethod = "fallbackFindByUsername",
+			threadPoolKey = "userPool",
+			threadPoolProperties = {
+					@HystrixProperty(name = "coreSize", value = "20"),
+					@HystrixProperty(name = "maxQueueSize", value = "10")
+			})
+	public User findUserByUsername(@PathVariable("username") String username) {
+		return userService.findByUsername(username);
+	}
+	
+	public User fallbackFindByUsername(String username) {
+		return new User(0, "No user with username " + username, null, null, null, null);
 	}
 	
 	/************************************************************************************

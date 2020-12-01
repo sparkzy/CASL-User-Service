@@ -3,11 +3,9 @@ package gg.sparkzy.casl.userservice;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.FeignClient;
 
 @SpringBootApplication
-@EnableEurekaClient
 @EnableCircuitBreaker
 @FeignClient("user-service")
 public class UserServiceApplication {
