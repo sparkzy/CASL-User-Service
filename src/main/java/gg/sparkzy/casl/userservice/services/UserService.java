@@ -5,7 +5,7 @@ import java.util.List;
 import gg.sparkzy.casl.userservice.entities.User;
 
 /**
- * User service implementation for CASL
+ * User service interface for CASL
  * 
  * @author Bobby McGetrick
  *

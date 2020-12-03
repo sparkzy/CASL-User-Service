@@ -17,6 +17,13 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import gg.sparkzy.casl.userservice.entities.User;
 import gg.sparkzy.casl.userservice.services.UserService;
 
+/**
+ * User controller for CASL.
+ * Rest controller that routes requests to a UserService.
+ * 
+ * @author Bobby McGetrick
+ *
+ */
 @RestController
 @RequestMapping("/users/")
 @RefreshScope // actuator/refresh
