@@ -8,9 +8,7 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.Proxy;
 
-import lombok.Data;
-
-@Data
+//@Data
 @Entity(name = "users")
 @Proxy(lazy = false)
 public class User {
