@@ -6,16 +6,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.Data;
+import org.hibernate.annotations.Proxy;
 
-@Data
+//@Data
 @Entity(name = "users")
+@Proxy(lazy = false)
 public class User {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id;
-	
+
 	@Column(name = "username")
 	String username;
 	@Column(name = "password")
