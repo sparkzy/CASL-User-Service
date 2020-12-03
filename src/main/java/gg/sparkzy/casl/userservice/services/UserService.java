@@ -20,9 +20,11 @@ public interface UserService {
 	/************************************************************************************
 	 * Read
 	 ************************************************************************************/
+	public List<User> findAll();
+	
 	public User findById(int id);
 
-	public List<User> findAll();
+	public User findByUsername(String username);
 
 	/************************************************************************************
 	 * Update

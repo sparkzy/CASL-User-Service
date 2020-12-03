@@ -8,4 +8,6 @@ import gg.sparkzy.casl.userservice.entities.User;
 @Repository
 public interface UserRepo extends JpaRepository<User, Integer> {
 
+	User findByUsername(String username);
+
 }
