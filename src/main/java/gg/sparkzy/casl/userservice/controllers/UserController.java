@@ -50,7 +50,6 @@ public class UserController {
 					@HystrixProperty(name = "maxQueueSize", value = "10")
 			})
 	public List<User> findAll() {
-		System.out.println(greeting + "***********************************************************************");
 		return userService.findAll();
 	}
 	

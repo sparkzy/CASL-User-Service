@@ -1,10 +1,4 @@
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "*"
-        
-spring:
+ spring:
   profiles:
     active: test
   cloud:
@@ -12,12 +6,3 @@ spring:
       uri: http://localhost:${config.port:8888}
   application:
     name: user-service
-#  datasource:
-#    url: ${db_url}
-#    username: ${db_username}
-#    password: ${db_pass}
-#    
-#eureka:
-#  client:
-#    service-url:
-#      defaultZone: ${eureka_url}
