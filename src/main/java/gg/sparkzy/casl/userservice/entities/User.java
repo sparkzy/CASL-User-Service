@@ -10,7 +10,6 @@ import org.hibernate.annotations.Proxy;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-//@Data
 @Entity(name = "users")
 @Proxy(lazy = false)
 public class User {
