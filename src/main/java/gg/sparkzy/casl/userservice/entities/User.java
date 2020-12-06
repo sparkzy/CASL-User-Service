@@ -10,6 +10,12 @@ import org.hibernate.annotations.Proxy;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * User entity for CASL
+ * 
+ * @author Bobby McGetrick
+ *
+ */
 @Entity(name = "users")
 @Proxy(lazy = false)
 public class User {
