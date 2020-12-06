@@ -8,6 +8,12 @@ import org.springframework.stereotype.Service;
 import gg.sparkzy.casl.userservice.entities.User;
 import gg.sparkzy.casl.userservice.repos.UserRepo;
 
+/**
+ * User service implementation for CASL
+ * 
+ * @author Bobby McGetrick
+ *
+ */
 @Service
 public class UserServiceImpl implements UserService {
 
