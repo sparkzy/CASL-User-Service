@@ -1,4 +1,4 @@
-package gg.sparkzy.casl.userservice.messaging;
+package gg.sparkzy.casl.userservice.messaging.consumers;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import gg.sparkzy.casl.userservice.entities.User;
+import gg.sparkzy.casl.userservice.messaging.dto.Message;
 import gg.sparkzy.casl.userservice.services.UserService;
 
 @Component

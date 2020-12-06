@@ -1,31 +1,35 @@
-package gg.sparkzy.casl.userservice.messaging;
+package gg.sparkzy.casl.userservice.messaging.dto;
 
-import gg.sparkzy.casl.userservice.entities.User;
+import java.io.Serializable;
 
-public class UserStatus {
-	
-	private User user;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Message<T> implements Serializable {
+
+	private T object;
 	private String status;
 	private String message;
 
-	public UserStatus() {
+	public Message() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public UserStatus(User user, String status, String message) {
+	public Message(@JsonProperty("object") T object,
+			       @JsonProperty("status") String status,
+			       @JsonProperty("message") String message) {
 		super();
-		this.user = user;
+		this.object = object;
 		this.status = status;
 		this.message = message;
 	}
 
-	public User getUser() {
-		return user;
+	public T getObject() {
+		return object;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setObject(T object) {
+		this.object = object;
 	}
 
 	public String getStatus() {
@@ -46,7 +50,7 @@ public class UserStatus {
 
 	@Override
 	public String toString() {
-		return "UserStatus [user=" + user + ", status=" + status + ", message=" + message + "]";
+		return "Message [object=" + object + ", status=" + status + ", message=" + message + "]";
 	}
 
 	@Override
@@ -54,8 +58,8 @@ public class UserStatus {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((message == null) ? 0 : message.hashCode());
+		result = prime * result + ((object == null) ? 0 : object.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 
@@ -67,21 +71,22 @@ public class UserStatus {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserStatus other = (UserStatus) obj;
+		@SuppressWarnings("unchecked")
+		Message<T> other = (Message<T>) obj;
 		if (message == null) {
 			if (other.message != null)
 				return false;
 		} else if (!message.equals(other.message))
 			return false;
+		if (object == null) {
+			if (other.object != null)
+				return false;
+		} else if (!object.equals(other.object))
+			return false;
 		if (status == null) {
 			if (other.status != null)
 				return false;
 		} else if (!status.equals(other.status))
-			return false;
-		if (user == null) {
-			if (other.user != null)
-				return false;
-		} else if (!user.equals(other.user))
 			return false;
 		return true;
 	}
