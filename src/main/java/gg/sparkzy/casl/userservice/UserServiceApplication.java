@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 
 import gg.sparkzy.casl.userservice.entities.User;
-import gg.sparkzy.casl.userservice.messaging.Message;
+import gg.sparkzy.casl.userservice.messaging.dto.Message;
 
 /**
  * User micro-service main for CASL
