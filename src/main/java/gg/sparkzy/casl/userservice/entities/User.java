@@ -8,6 +8,8 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.Proxy;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 //@Data
 @Entity(name = "users")
 @Proxy(lazy = false)
@@ -33,7 +35,12 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(int id, String username, String password, String email, String firstName, String lastName) {
+	public User(@JsonProperty("id") int id,
+				@JsonProperty("username") String username,
+				@JsonProperty("password") String password,
+				@JsonProperty("email") String email,
+				@JsonProperty("firstName") String firstName,
+				@JsonProperty("lastName") String lastName) {
 		super();
 		this.id = id;
 		this.username = username;

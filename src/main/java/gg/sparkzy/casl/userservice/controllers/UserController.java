@@ -40,7 +40,7 @@ public class UserController {
 	/************************************************************************************
 	 * Read
 	 ************************************************************************************/
-	@GetMapping
+	@GetMapping("/all")
 	@HystrixCommand(
 			fallbackMethod = "fallbackFindAll",
 			threadPoolKey = "userPool",
