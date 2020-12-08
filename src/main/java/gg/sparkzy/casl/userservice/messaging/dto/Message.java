@@ -1,7 +1,5 @@
 package gg.sparkzy.casl.userservice.messaging.dto;
 
-import java.io.Serializable;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Message<T> {
